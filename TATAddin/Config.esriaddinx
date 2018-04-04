@@ -1,0 +1,137 @@
+﻿<ESRI.Configuration xmlns="http://schemas.esri.com/Desktop/AddIns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>TATAddin</Name>
+  <AddInID>{6726f1a0-44da-40cf-b66b-797cad31736b}</AddInID>
+  <Description>Type in a description for this Add-in.</Description>
+  <Version>1.0</Version>
+  <Image>Images\TATAddin.png</Image>
+  <Author>Philip Bailey</Author>
+  <Company>North Arrow Research Ltd.</Company>
+  <Date>4/4/2018</Date>
+  <Targets>
+    <Target name="Desktop" version="10.4" />
+  </Targets>
+  <AddIn language="CLR" library="TATAddin.dll" namespace="TATAddin">
+    <ArcMap>
+      <Commands>
+        <!-- Data Preparation Menu -->
+        <!--Survey Preparation Sub-Menu-->
+        <Button id ="TATAddIn_RawPointCloudToFeatureClass" class ="PointCloudToFcButton" message ="Convert a x,y,z delimted text file to a point feature class" caption ="Create Point Feature Class" category="TAT" image=""/>
+        <Button id ="TATAddIn_SurveyMaskCreatorButton" class ="SurveyMaskCreatorButton" message="Takes in a space delimited x y z file and creates an accurate survey extent" caption="Create Survey Extent Polygon" category="TAT"/>
+        <Button id ="TATAddIn_FcToDEM_TIN" class="FcToDEM_TIN_Button" message="Convert a point feature class to a DEM and/or TIN" caption ="Create DEM and/or TIN" category="TAT" image=""/>
+
+        <!-- ToPCAT Sub-menu -->
+        <Button id="TATAddIn_TopCATPrepButton" class ="ToPCATPrepButton" message ="Prepare raw point cloud file to be used in ToPCAT" caption= "ToPCAT Preperation" category="TAT" image="Resources\TopCat.png" />
+        <Button id="TATAddIn_TopCAT" class ="ToPCATButton" message ="Runs ToPCAT point cloud decimation" caption= "ToPCAT Point Cloud Decimation" category="TAT" image="Resources\TopCat.png" />
+
+        <!-- Analysis Menu-->
+        <!-- Uncertainty Analysis Sub-Menu-->
+        <!-- Uncertainty - FIS Development Sub sub menu-->
+        <Button id="TATAddIn_FIS_DevelopmentAssistant" class="FIS_DevelopmentAssistantButton" message="Aids in the creation of a Fuzzy Inference System" caption="FIS Development Assistant (BETA)" category="TAT" image="Resources\FISLibrary.png"/>
+        <!-- Uncertainty - Point Cloud Based Analysis Sub sub menu-->
+        <Button id="TATAddIn_CoincidentPointsButton" class="CoincidentPointsToolButton"  message="Finds coincident points within a text based point cloud file" caption="Coincident Points Tool (BETA)" category="TAT" image="Resources\CoincidentPoints.png"/>
+        <Button id="TATAddIn_ToPCAT_DetrendedStandardDeviationButton" class="ToPCAT_DetrendedStandardDeviationButton" message="" caption="ToPCAT Detrended Standard Deviation" category="TAT" image="Resources\TopCat.png"/>
+        <!-- Uncertainty - Raster Based  Analysis Sub sub menu-->
+        <Button id="TATAddIn_FIS_ErrorSurfaceButton" class="FIS_ErrorSurfaceButton" message="Create FIS error raster surface" caption="Create FIS Error Surface" category="TAT" image="Resources\FISLibrary.png"/>
+        <Button id="TATAddIn_InterpolationErrorSurfaceButton" class="InterpolationErrorSurfaceButton" message="Creates an interpolation error surface" caption="Create Interpolation Error Surface (BETA)" category="TAT" image=""/>
+
+        <!-- Roughness Analysis Sub-Menu-->
+        <Button id="TATAddIn_SimpleToPCAT_RoughnessButton" class="SimpleToPCAT_RoughnessButton" message="Create surface roughness raster from a point cloud" caption ="Simple ToPCAT Roughness (BETA)" category="TAT" image="Resources\Roughness.png"/>
+        <Button id="TATAddIn_RoughnessModelerButton" class="RoughnessModelerButton" message="" caption="Bootstrap Roughness Modeler" category="TAT" image=""/>
+        <Button id= "TATAddIn_GrainSizeDistributionEstimatorButton" class="GrainSizeDistributionEstimatorButton" message="" caption="Grain Size Distribution Estimator" category="TAT" image=""/>
+
+        <!-- Help Menu-->
+        <Button id="TATAddIn_AboutButton" class="AboutButton" message="Provides information about the version, authors and funding for the Topographic Analysis Tools." caption="About Topographic Analysis Tools" tip="Information About the Topographic Analysis Tools" category="TAT" image="Resources\GCD.png" />
+        <Button id="TATAddIn_OnlineHelp" class="OnlineHelpButton" message="Open the Online Help" caption="Online Help" category="TAT" image="Resources\Help.png" />
+        <Button id="TATAddIn_WebSite" class="WebSiteButton" message="Open the TAT Software Web Site" caption="TAT Web Site" category="TAT" image="Resources\Help.png" />
+      </Commands>
+      <Menus>
+        <Menu caption="Data Preparation" isRootMenu="false" id="TATAddIn_DataPreparationMenu">
+          <Items>
+            <Menu refID="TATAddIn_SurveyPreparationMenu" separator="true"/>
+            <Menu refID ="TATAddIn_ToPCATMenu" separator ="true"/>
+          </Items>
+        </Menu>
+        <Menu caption="Analysis" isRootMenu="false" id="TATAddIn_AnalysisMenu">
+          <Items>
+            <Menu refID="TATAddIn_UncertaintyAnalysisMenu"/>
+            <Menu refID="TATAddIn_RoughnessAnalysisMenu"/>
+            <Menu refID="TATAddIn_GeomorphicChangeDetection"/>
+          </Items>
+        </Menu>
+        <Menu caption="Help" isRootMenu="false" id="TATAddIn_HelpMenu">
+          <Items>
+            <Button refID="TATAddIn_OnlineHelp" />
+            <Button refID="TATAddIn_WebSite" />
+            <Button refID="TATAddIn_AboutButton" />
+          </Items>
+        </Menu>
+        <!-- Sub Menus-->
+        <!-- Data Preparation Sub Menu-->
+        <Menu caption="Survey Preparation (BETA)" isRootMenu="false" id="TATAddIn_SurveyPreparationMenu">
+          <Items>
+            <Button refID="TATAddIn_RawPointCloudToFeatureClass"/>
+            <Button refID="TATAddIn_SurveyMaskCreatorButton"/>
+            <Button refID="TATAddIn_FcToDEM_TIN"/>
+          </Items>
+        </Menu>
+        <!-- ToPCAT Sub Menu-->
+        <Menu caption="ToPCAT" isRootMenu="false" id="TATAddIn_ToPCATMenu">
+          <Items>
+            <Button refID ="TATAddIn_TopCATPrepButton" separator="true"/>
+            <Button refID ="TATAddIn_TopCAT"/>
+          </Items>
+        </Menu>
+
+        <!-- Uncertainty Analysis Menu-->
+        <Menu caption ="Uncertainty Analysis (BETA)" isRootMenu="false" id="TATAddIn_UncertaintyAnalysisMenu">
+          <Items>
+            <Menu refID="TATAddIn_FIS_DevelopmentMenu"/>
+            <Menu refID="TATAddIn_PointCloudBasedUncertaintyMenu"/>
+            <Menu refID="TATAddIn_RasterBasedUncertaintyMenu"/>
+          </Items>
+        </Menu>
+        <!-- Roughness Analysis Menu -->
+        <Menu caption ="Roughness Analysis (BETA)" isRootMenu ="false" id ="TATAddIn_RoughnessAnalysisMenu">
+          <Items>
+            <Button refID="TATAddIn_SimpleToPCAT_RoughnessButton"/>
+            <Button refID="TATAddIn_MultiResolutionToPCAT_Button"/>
+            <Button refID="TATAddIn_RoughnessModelerButton"/>
+            <Button refID="TATAddIn_GrainSizeDistributionEstimatorButton"/>
+          </Items>
+        </Menu>
+        <!-- Sub sub Menus-->
+        <!-- Uncertainty - FIS Development Menu-->
+        <Menu caption ="FIS Development Tools" isRootMenu="false" id="TATAddIn_FIS_DevelopmentMenu">
+          <Items>
+            <Button refID="TATAddIn_FIS_DevelopmentAssistant"/>
+          </Items>
+        </Menu>
+        <!-- Uncertainty - Point Cloud Based Menu-->
+        <Menu caption ="Point Cloud Based" isRootMenu="false" id="TATAddIn_PointCloudBasedUncertaintyMenu">
+          <Items>
+            <Button refID="TATAddIn_CoincidentPointsButton"/>
+            <Button refID="TATAddIn_ToPCAT_DetrendedStandardDeviationButton"/>
+          </Items>
+        </Menu>
+        <!-- Uncertainty - Raster Based Menu-->
+        <Menu caption="Raster Based" isRootMenu="false" id ="TATAddIn_RasterBasedUncertaintyMenu">
+          <Items>
+            <Button refID="TATAddIn_FIS_ErrorSurfaceButton"/>
+            <Button refID="TATAddIn_InterpolationErrorSurfaceButton"/>
+          </Items>
+        </Menu>
+      </Menus>
+      <Toolbars>
+        <Toolbar caption="Topographic Analysis Tools" showInitially="true" id="TATAddIn_Toolbar">
+          <Items>
+            <Button refID="TATAddIn_ToolbarExplorerButton" />
+            <Menu refID="TATAddIn_DataPreparationMenu" />
+            <Menu refID="TATAddIn_AnalysisMenu" />
+            <Menu refID="TATAddIn_CustomizeMenu" />
+            <Menu refID="TATAddIn_HelpMenu" />
+          </Items>
+        </Toolbar>
+      </Toolbars>
+    </ArcMap>
+  </AddIn>
+</ESRI.Configuration>

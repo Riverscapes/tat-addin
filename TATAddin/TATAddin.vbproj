@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6726F1A0-44DA-40CF-B66B-797CAD31736B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TATAddin</RootNamespace>
+    <AssemblyName>TATAddin</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>TATAddin.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>TATAddin.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ESRI.ArcGIS.3DAnalyst, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.AnalysisTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.Analyst3DTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.Carto, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.CartographyTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.CartoUI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Catalog, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.CatalogUI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.ConversionTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.DataManagementTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.DataSourcesFile, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesGDB, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.DataSourcesRaster, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Desktop.AddIns">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Display, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.EditingTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.Editor, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Framework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.GeoAnalyst, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geodatabase, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geometry, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geoprocessing, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Geoprocessor, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.Output, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalyst, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SpatialAnalystTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.SpatialStatisticsTools, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="ESRI.ArcGIS.System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.SystemUI, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ESRI.ArcGIS.Version, Version=10.4.0.0, Culture=neutral, PublicKeyToken=8fc3cc631e44ad86, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="ZedGraph">
+      <HintPath>_Redistributable\ZedGraph\ZedGraph.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="TATAddin.GISCode" />
+    <Import Include="TATAddin.GISCode.ErrorHandling" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddIn\DataPreparationMenu\FcToDEM_TIN_Button.vb" />
+    <Compile Include="AddIn\DataPreparationMenu\PointCloudToFcButton.vb" />
+    <Compile Include="AddIn\DataPreparationMenu\SurveyMaskCreatorButton.vb" />
+    <Compile Include="AddIn\DataPreparationMenu\ToPCATButton.vb" />
+    <Compile Include="AddIn\DataPreparationMenu\ToPCATPrepButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\RoughnessAnalysis\GrainSizeDistributionEstimatorButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\RoughnessAnalysis\RoughnessModelerButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\RoughnessAnalysis\SimpleToPCAT_RoughnessButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\UncertaintyAnalysis\CoincidentPointsToolButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\UncertaintyAnalysis\FIS_DevelopmentAssistantButton.vb" />
+    <Compile Include="AddIn\GCDAnalysisMenu\UncertaintyAnalysis\InterpolationErrorSurfaceButton.vb" />
+    <Compile Include="AddIn\HelpMenu\AboutButton.vb" />
+    <Compile Include="AddIn\HelpMenu\OnlineHelpButton.vb" />
+    <Compile Include="AddIn\HelpMenu\WebSiteButton.vb" />
+    <Compile Include="Config.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Config.esriaddinx</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frmBootstrapRoughness.Designer.vb">
+      <DependentUpon>frmBootstrapRoughness.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frmBootstrapRoughness.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frmGrainSizeDistributionCalculator.Designer.vb">
+      <DependentUpon>frmGrainSizeDistributionCalculator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frmGrainSizeDistributionCalculator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frm_SimpleToPCAT_RoughnessRaster.Designer.vb">
+      <DependentUpon>frm_SimpleToPCAT_RoughnessRaster.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\RoughnessAnalysis\frm_SimpleToPCAT_RoughnessRaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frmSurveyMaskCreator.Designer.vb">
+      <DependentUpon>frmSurveyMaskCreator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frmSurveyMaskCreator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frm_FcToDEM_TIN.Designer.vb">
+      <DependentUpon>frm_FcToDEM_TIN.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frm_FcToDEM_TIN.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frm_RawPointCloudToShp.Designer.vb">
+      <DependentUpon>frm_RawPointCloudToShp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\SurveyPreparation\frm_RawPointCloudToShp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\CoincidentPoints\CoincidentPoints.vb" />
+    <Compile Include="Experimental\UncertaintyAnalysis\CoincidentPoints\frm_CoincidentPointsShp.Designer.vb">
+      <DependentUpon>frm_CoincidentPointsShp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\CoincidentPoints\frm_CoincidentPointsShp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\frm_FIS_DevelopmentAssistant.Designer.vb">
+      <DependentUpon>frm_FIS_DevelopmentAssistant.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\frm_FIS_DevelopmentAssistant.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\frm_InterploationError.Designer.vb">
+      <DependentUpon>frm_InterploationError.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Experimental\UncertaintyAnalysis\frm_InterploationError.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GISCode\CHaMP\ChannelUnit.vb" />
+    <Compile Include="GISCode\ErrorHandling\ExceptionBase.vb" />
+    <Compile Include="GISCode\ErrorHandling\ExceptionForm.Designer.vb">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GISCode\ErrorHandling\ExceptionForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GISCode\ErrorHandling\ExceptionUI.vb" />
+    <Compile Include="GISCode\ErrorHandling\GISException.vb" />
+    <Compile Include="GISCode\GCD\ConcaveHull.vb" />
+    <Compile Include="GISCode\GCD\ErrorCalculation\ErrorGenerator_BootstrapRoughness.vb" />
+    <Compile Include="GISCode\GCD\ErrorCalculation\ErrorGenerator_InChannelRoughness.vb" />
+    <Compile Include="GISCode\GCD\ErrorCalculation\ErrorGenerator_InterpolationError.vb" />
+    <Compile Include="GISCode\GCD\ErrorCalculation\GrainSizeDistributionCalculator.vb" />
+    <Compile Include="GISCode\General\ArcMap.vb" />
+    <Compile Include="GISCode\General\ConcaveHull.vb" />
+    <Compile Include="GISCode\General\Extensions.vb" />
+    <Compile Include="GISCode\General\NumberFormatting.vb" />
+    <Compile Include="GISCode\General\OperatingSystem.vb" />
+    <Compile Include="GISCode\General\SpatialReferences.vb" />
+    <Compile Include="GISCode\General\Statistics.vb" />
+    <Compile Include="GISCode\General\SurfaceInterpolator.vb" />
+    <Compile Include="GISCode\General\Table.vb" />
+    <Compile Include="GISCode\General\ToolBox.vb" />
+    <Compile Include="GISCode\General\WorkspaceManager.vb" />
+    <Compile Include="GISCode\Geoprocessing\Analyst3D.vb" />
+    <Compile Include="GISCode\Geoprocessing\Conversion.vb" />
+    <Compile Include="GISCode\Geoprocessing\DataManagment.vb" />
+    <Compile Include="GISCode\Geoprocessing\FileSystem.vb" />
+    <Compile Include="GISCode\Geoprocessing\Geoprocessing.vb" />
+    <Compile Include="GISCode\Geoprocessing\SpatialAnalyst.vb" />
+    <Compile Include="GISCode\GISDataStructures\CrossSectionFields.vb" />
+    <Compile Include="GISCode\GISDataStructures\ExtentRectangle.vb" />
+    <Compile Include="GISCode\GISDataStructures\GISDataSource.vb" />
+    <Compile Include="GISCode\GISDataStructures\PointDataSource.vb" />
+    <Compile Include="GISCode\GISDataStructures\PointDataSource3D.vb" />
+    <Compile Include="GISCode\GISDataStructures\PolygonDataSource.vb" />
+    <Compile Include="GISCode\GISDataStructures\PolylineDataSource.vb" />
+    <Compile Include="GISCode\GISDataStructures\Raster.vb" />
+    <Compile Include="GISCode\GISDataStructures\TINDataSource.vb" />
+    <Compile Include="GISCode\GISDataStructures\VectorDataSource.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Options\frmMessageBoxWithReminder.Designer.vb">
+      <DependentUpon>frmMessageBoxWithReminder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Options\frmMessageBoxWithReminder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopCAT\Classes\GIS.vb" />
+    <Compile Include="TopCAT\Classes\MyGeoprocessing.vb" />
+    <Compile Include="TopCAT\Classes\Stats.vb" />
+    <Compile Include="TopCAT\Classes\ToPCAT_Assistant.vb" />
+    <Compile Include="TopCAT\Classes\WindowsFormAssistant.vb" />
+    <Compile Include="TopCAT\Classes\WindowsManagement.vb" />
+    <Compile Include="TopCAT\Forms\frm_MessageManager.Designer.vb">
+      <DependentUpon>frm_MessageManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TopCAT\Forms\frm_MessageManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopCAT\Forms\frm_ToPCAT.designer.vb">
+      <DependentUpon>frm_ToPCAT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TopCAT\Forms\frm_ToPCAT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopCAT\Forms\frm_ToPCAT_Prep.designer.vb">
+      <DependentUpon>frm_ToPCAT_Prep.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TopCAT\Forms\frm_ToPCAT_Prep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TopCAT\UserControls\ucMessageManager.Designer.vb">
+      <DependentUpon>ucMessageManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TopCAT\UserControls\ucMessageManager.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TopCAT\UserControls\ucToPCAT_Inputs.Designer.vb">
+      <DependentUpon>ucToPCAT_Inputs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TopCAT\UserControls\ucToPCAT_Inputs.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Experimental\RoughnessAnalysis\frmBootstrapRoughness.resx">
+      <DependentUpon>frmBootstrapRoughness.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\RoughnessAnalysis\frmGrainSizeDistributionCalculator.resx">
+      <DependentUpon>frmGrainSizeDistributionCalculator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\RoughnessAnalysis\frm_SimpleToPCAT_RoughnessRaster.resx">
+      <DependentUpon>frm_SimpleToPCAT_RoughnessRaster.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\SurveyPreparation\frmSurveyMaskCreator.resx">
+      <DependentUpon>frmSurveyMaskCreator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\SurveyPreparation\frm_FcToDEM_TIN.resx">
+      <DependentUpon>frm_FcToDEM_TIN.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\SurveyPreparation\frm_RawPointCloudToShp.resx">
+      <DependentUpon>frm_RawPointCloudToShp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\UncertaintyAnalysis\CoincidentPoints\frm_CoincidentPointsShp.resx">
+      <DependentUpon>frm_CoincidentPointsShp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\UncertaintyAnalysis\frm_FIS_DevelopmentAssistant.resx">
+      <DependentUpon>frm_FIS_DevelopmentAssistant.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Experimental\UncertaintyAnalysis\frm_InterploationError.resx">
+      <DependentUpon>frm_InterploationError.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GISCode\ErrorHandling\ExceptionForm.resx">
+      <DependentUpon>ExceptionForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\frmMessageBoxWithReminder.resx">
+      <DependentUpon>frmMessageBoxWithReminder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopCAT\Forms\frm_MessageManager.resx">
+      <DependentUpon>frm_MessageManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopCAT\Forms\frm_ToPCAT.resx">
+      <DependentUpon>frm_ToPCAT.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopCAT\Forms\frm_ToPCAT_Prep.resx">
+      <DependentUpon>frm_ToPCAT_Prep.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopCAT\UserControls\ucMessageManager.resx">
+      <DependentUpon>ucMessageManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TopCAT\UserControls\ucToPCAT_Inputs.resx">
+      <DependentUpon>ucToPCAT_Inputs.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="GISCode\GCD\Python\GCD_Python.pyc" />
+    <None Include="GISCode\GCD\Python\GCD_Python.pyt" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="TopCAT\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Config.esriaddinx">
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <Generator>ArcGISAddInHostGenerator</Generator>
+      <LastGenOutput>Config.Designer.vb</LastGenOutput>
+    </AddInContent>
+  </ItemGroup>
+  <ItemGroup>
+    <AddInContent Include="Images\TATAddin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="ESRI.ArcGIS.ArcMapUI">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GISCode\GCD\Python\GCD_Python.BootstrapRoughness.pyt.xml" />
+    <Content Include="GISCode\GCD\Python\GCD_Python.ExtractRasterByMask.pyt.xml" />
+    <Content Include="GISCode\GCD\Python\GCD_Python.py" />
+    <Content Include="GISCode\GCD\Python\GCD_Python.pyproj" />
+    <Content Include="GISCode\GCD\Python\GCD_Python.pyt.xml" />
+    <Content Include="GISCode\GCD\Python\GCD_Python.Tool.pyt.xml" />
+    <None Include="Resources\TopCat.png" />
+    <None Include="Resources\SlopePercent.png" />
+    <None Include="Resources\SlopeDegree.png" />
+    <None Include="Resources\sigma.png" />
+    <None Include="Resources\Settings.png" />
+    <None Include="Resources\SelectNone.png" />
+    <None Include="Resources\SelectAll.png" />
+    <None Include="Resources\SaveGIS.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Roughness.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\print.png" />
+    <None Include="Resources\polygon.png" />
+    <None Include="Resources\PointDensity.png" />
+    <None Include="Resources\Options.png" />
+    <None Include="Resources\IdahoPower_63height.jpg" />
+    <None Include="Resources\IdahoPower.jpg" />
+    <None Include="Resources\ICRRR_Logo_100.gif" />
+    <None Include="Resources\Histogram.png" />
+    <None Include="Resources\Help.png" />
+    <None Include="Resources\GCD.png" />
+    <None Include="Resources\Excel.png" />
+    <None Include="Resources\DoD_Logo.jpg" />
+    <None Include="Resources\Delta.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Copy.png" />
+    <None Include="Resources\ConcaveHull.png" />
+    <None Include="Resources\CoincidentPoints.png" />
+    <None Include="Resources\Check.png" />
+    <None Include="Resources\chart.png" />
+    <None Include="Resources\BrowseFolder.png" />
+    <None Include="Resources\AOI.png" />
+    <None Include="Resources\alphabetical.png" />
+    <None Include="Resources\AddToMap.png" />
+    <None Include="Resources\Add.png" />
+    <Content Include="TopCAT\ToPCATx64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TopCAT\ToPCATx86.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <ZipFileExtension>esriAddIn</ZipFileExtension>
+    <AddInTargetProduct>Desktop</AddInTargetProduct>
+    <AddInTargetVersion>10.4</AddInTargetVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets" Condition="Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <!-- Gives build warning when add-in targets file is not found. -->
+    <Warning Text="Unable to create .esriAddin; missing ESRI ArcGIS Add-in SDK component(s)." Condition="!Exists('$(MSBuildExtensionsPath)\ESRI\ESRI.ArcGIS.AddIns.targets')" />
+  </Target>
+  <ProjectExtensions>
+    <!-- Default ESRI add-in properties -->
+    <ESRIAddInProperties>
+      <Host>ArcMap</Host>
+    </ESRIAddInProperties>
+  </ProjectExtensions>
+</Project>
