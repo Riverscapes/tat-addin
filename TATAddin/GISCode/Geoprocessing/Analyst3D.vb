@@ -1,22 +1,4 @@
-﻿#Region "Code Comments"
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-'       Author: Philip Bailey, Nick Ochoski, & Frank Poulsen
-'               ESSA Software Ltd.
-'               1765 W 8th Avenue
-'               Vancouver, BC, Canada V6J 5C6
-'     
-'     Copyright: (C) 2011 by ESSA technologies Ltd.
-'                This software is subject to copyright protection under the       
-'                laws of Canada and other countries.
-'
-'  Date Created: 14 January 2011
-'
-'   Description: This geoprocessing takes in a point cloud as shapefile and create
-'                a raster DEM through intermediate steps that create a terrain.
-'
-#End Region
-
-#Region "Imports"
+﻿#Region "Imports"
 Imports ESRI.ArcGIS.Analyst3DTools
 Imports ESRI.ArcGIS.Geoprocessor
 Imports ESRI.ArcGIS.Geodatabase

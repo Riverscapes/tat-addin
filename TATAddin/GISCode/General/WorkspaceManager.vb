@@ -149,17 +149,6 @@ Namespace GISCode
         ''' Get the default workspace
         ''' </summary>
         ''' <returns></returns>
-        ''' <remarks>
-        ''' Should resolve to the application folder, e.g. 
-        ''' C:\Documents and Settings\[User]\Application Data\ESSA_Technologies_Ltd\RBT
-        ''' Composed of Environment.SpecialFolder.ApplicationData, My.Resousource.idsManufacturer and My.resources.ApplicationNameShort
-        ''' 
-        ''' PGB 18 Jul 2011 - based on a conversation with Joe Wheaton on 11 July 2011. The 
-        ''' default temp workspace will now be in the users application data folder and then:
-        ''' appfolder\GCD\TempWorkspace
-        '''
-        ''' This should also work for the RBT. It is a good solution because the ESSA Technologies
-        ''' compontent using the manufaturer was a bit odd anyways.</remarks>
         Public Shared Function GetDefaultWorkspace(sManufacturer As String, sApplicationShort As String) As String
 
             'Debug.Assert(Not String.IsNullOrEmpty(sManufacturer))

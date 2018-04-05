@@ -394,7 +394,7 @@ Namespace GISCode.GISDataStructures
             Do
                 If String.IsNullOrEmpty(sRootName) Then
                     If String.IsNullOrEmpty(sOriginalDSName) Then
-                        sNewDSName = "essa"
+                        sNewDSName = "ds"
                     Else
                         sNewDSName = sOriginalDSName
                     End If
@@ -937,7 +937,7 @@ Namespace GISCode.GISDataStructures
             Do
                 If String.IsNullOrEmpty(sRootName) Then
                     If String.IsNullOrEmpty(sOriginalDSName) Then
-                        sNewDSName = "essa"
+                        sNewDSName = "ds"
                     Else
                         sNewDSName = sOriginalDSName
                     End If
