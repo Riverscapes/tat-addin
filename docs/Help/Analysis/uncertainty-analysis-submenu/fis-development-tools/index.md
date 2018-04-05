@@ -1,5 +1,6 @@
 ---
-title: a. FIS Development Tools
+title: FIS Development Tools
+weight: 1
 ---
 
 The FIS Development Tools, currently include the FIS Development Assistant and will eventually include an FIS Development Wizard.
@@ -8,7 +9,7 @@ The FIS Development Tools sub menu is located under the Analysis --> Uncertainty
 
 ![GCD6_Menu_Analysis_Uncertainty_FIS_FISAssist (1)]({{ site.baseurl }}/assets/images/GCD6_Menu_Analysis_Uncertainty_FIS_FISAssist (1).png)
 
-#### FIS Development Tools Commands
+## FIS Development Tools Commands
 
 - [i. FIS Development Assistant]({{ site.baseurl }}/gcd-command-reference/gcd-analysis-menu/a-uncertainty-analysis-submenu/a-fis-development-tools/i-fis-development-assistant)
 

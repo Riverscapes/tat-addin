@@ -1,5 +1,6 @@
 ---
-title: B. Roughness Analysis Submenu
+title: Roughness Analysis Submenu
+weight: 1
 ---
 
 The Roughness Analysis Sub-Menu will include a variety of roughness estimation tools. These tools are really only appropriate to apply to high-resolution topographic point clouds (e.g. TLS, MBES, SFM). Roughness is an input into some FIS-based error models and can be used in some cases as an error model itself. In this version, the only roughness model include is the Simple ToPCAT Roughness tool, which uses a locally detrended standard deviation bucket algorithm as a proxy for roughness.
