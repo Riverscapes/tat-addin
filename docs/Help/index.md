@@ -1,6 +1,6 @@
 ---
-title: Old GCD 6 Features
-weight: 10
+title: Help Documentation
+weight: 1
 ---
 
 A number of commands from GCD 6, no longer exist in GCD 7.
