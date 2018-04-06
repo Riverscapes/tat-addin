@@ -3,3 +3,5 @@ bin/
 _Redistributable/
 *.suo
 GCDAddIn.vbproj.user
+
+_site/
