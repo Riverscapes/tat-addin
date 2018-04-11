@@ -28,7 +28,6 @@ ToPCAT was originally developed as [PCTools](https://code.google.com/archive/p/p
 <a href="http://etal.joewheaton.org/james-hensleigh.html"><img class="float-left" src="{{ site.baseurl }}/assets/images/people/Hensleigh_round_200.png"></a>
 This  toolset grew out of [James Hensleigh's](http://etal.joewheaton.org/james-hensleigh.html) [Masters Thesis](https://digitalcommons.usu.edu/gradreports/376/) and project led by James Hensleigh of ET-AL for the Idaho Power Company River Engineering Group on the Hell's Canyon Bathymetric Surface Differencing Project. Primarily, we sought to recommend peer reviewed and scientifically defensible **methods that facilitate accurate geomorphic change detection of MBES data** by adhering to best practices in the fields of topographic surveying and analysis. The recommended methods address [field data acquisition](http://mbes.joewheaton.org/workflow/project-file-management-storage/field-data-acquisition), [data post processing](http://mbes.joewheaton.org/z--old-crap/data-processing), and [change detection using post processed data](http://mbes.joewheaton.org/z--old-crap/data-analysis).  
 
-
 ------
 
 ## Who are Tatty Teddy and ToPCAT?
@@ -44,3 +43,4 @@ While the [British definition of Tat](https://dictionary.cambridge.org/us/dictio
 <div align="center">
     <a class="hollow button" href="{{ site.baseurl }}/"><i class="fa fa-chevron-circle-left"></i>  Back to Home </a>  
 </div>
+
