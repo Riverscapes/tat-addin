@@ -1,11 +1,14 @@
 ---
-title: Who is the GCD Team?
+title: Who is the TAT Team?
 weight: 3
 ---
 
 ## Project Inception & Vision
 
+The Topographic Analysis Toolkit is a repackaging
+
 ### The Early Days
+
 <a href="http://joewheaton.org"><img class="float-left" src="{{ site.baseurl }}/assets/images/people/Wheaton_round.png"></a>
 <a href="https://www.waikato.ac.nz/staff-profiles/people/jbrasing"><img class="float-right" src="{{ site.baseurl }}/assets/images/people/Brasington_round.png"></a>
 The GCD Software ![Icon]({{ site.baseurl }}/assets/images/icons/GCDAddIn.png) was originally developed by [Joe Wheaton](http://www.joewheaton.org) ([Utah State University Department of Watershed Sciences](http://www.cnr.usu.edu/wats/)) and [James Brasington](https://www.waikato.ac.nz/staff-profiles/people/jbrasing) ([The University of Waikato (New Zealand)](https://www.waikato.ac.nz)). Joe and James started collaborating on the geomorphic change detection back in 2004 during Joe's PhD. During Joe's Masters with [Greg Pasternack](http://pasternack.ucdavis.edu/), he became familiar with James' early work on change detection and topographic surveying (Brasington et al. 2001, Brasington et al. 2003) and employed some of his methods in their work on the [Mokelumne](http://shira.lawr.ucdavis.edu/). James taught Joe how to code in Matlab, and they knocked up the first version (DoD 1) shortly thereafter. Joe coded up the Matlab code together simply to make his own life easier for processing DoDs and keeping a handle on the housekeeping associated with this sort of analysis. He soon realized that many in the geomorphology community were struggling with the same problems and decided to build an easier-to-use piece of software so folks could do this analysis in GIS and avoid making silly and costly mistakes.
@@ -14,11 +17,22 @@ The GCD Software ![Icon]({{ site.baseurl }}/assets/images/icons/GCDAddIn.png) wa
 
 Joe was frustrated by how frequently researchers and practitioners were not doing even the most basic minimum level of detection analyses to convince their audiences the signals they were calculating were actually discernable from noise in the DEM data (a particularly pronounced problem in fluvial environments where elevation changes are low). Joe thought if you make it easy enough for people to do the analysis that they had no excuse not to, they might be able to incrementally raise the standard of practice. More to the point, if the tool could help with some of the common methodological hurdles, then it might help the community focus more on interpreting the outputs to test interesting hypotheses and develop new theories about morphodynamic evolution. 
 
-<a href="http://northarrowresearch.com/#people"><img class="float-left" src="{{ site.baseurl }}/assets/images/people/Phlip_round.png"></a>
+
 When Joe arrived at Utah State University in 2009, [Jack Scmidtt](https://qcnr.usu.edu/directory/schmidt_jack) quickly connected him with [Paul Grams](https://www.usgs.gov/staff-profiles/paul-grams) at USGS and some ICRRR funding, which enabled the GCD 4 development. Joe met [Philip Bailey](http://northarrowresearch.com/#people) (now of [North Arrow Research](http://northarrowresearch.com) then of ESSA Technologies) at a [NSF LiDAR Workshop](http://www.opentopography.org/index.php/resources/short_courses/lidar2_2010/) in 2010 in Boulder, Colorado. Joe was teaching a session on [DoD 3](https://github.com/joewheaton/DoD) and Philip was teaching a session on [the River Bathymetry Toolkit -RBT](https://www.fs.fed.us/rm/boise/AWAE/projects/river_bathymetry_toolkit.shtml). Like Joe, Philp also did his PhD in Geography from University of Southampton. The two started scheming at the workshop over ways to turn GCD into a more professional piece of software. Joe secured funding to make those schemes a reality, and the two have been working on GCD in various capacities ever since. In 2015, James,  Joe and [Damia Vericat](http://www.damiavericat.eu/) teamed back up to write a review article on the Morphological Approach for Gravel Bed Rivers ([Vericat et al., 2017](http://etal.joewheaton.org/new-fhc-publications/gravel-bed-rivers-chapter-on-revisiting-the-morphological-approach-finally-out)). That then laid the ground work for a 2016 NERC Proposal, which was funded and has involved a partnership with Regional Councils in New Zealand and the Scottish Environmental Protection Agency to refine GCD so that it can be used to support their management of gravel bed rivers.      
 
 
 ## Development Team
+
+<a href="http://northarrowresearch.com/#people"><img class="float-right" src="{{ site.baseurl }}/assets/images/people/Hensleigh_round_200.png"></a>The development team is easisest to describe by breaking it out into the ToPCAT and former MBES components.  
+
+### TAT ESRI Add-In
+<a href="http://northarrowresearch.com/#people"><img class="float-left" src="{{ site.baseurl }}/assets/images/people/Phlip_round.png"></a>  The TAT ESRI Add-In came about when a bunch of tools were orphaned from GCD 6 with the release of GCD 7.
+
+### ToPCAT - ToPographiC Analysis Toolkit
+
+### MBES GUI & Tools
+
+<a href="http://northarrowresearch.com/#people"><img class="float-right" src="{{ site.baseurl }}/assets/images/people/Hensleigh_round_200.png"></a>
 
 <a href="http://northarrowresearch.com/#people"><img class="float-right" src="{{ site.baseurl }}/assets/images/people/Matt_round.png"></a>
 The newest version of the GCD is currently under development by [North Arrow Research](http://northarrowresearch.com/) and [ET-AL](http://etal.joewheaton.org/). Since [GCD 5]({{ site.baseurl }}/Download/old_versions.html#gcd-5),   [Philip Bailey](http://northarrowresearch.com/#people) (North Arrow Research) has been the lead developer and architect of GCD. These days, [Philip Bailey](http://northarrowresearch.com/#people) and [Matt Reimer](http://northarrowresearch.com/#people) ([North Arrow Research](http://northarrowresearch.com/)) are the primary developers of GCD.  Matt has really upped the game and exposed the teams to a wealth of new technologies and simpler, more elegant solutions. Matt, Philip and Joe envisioned and launced the [Riverscapes Consortium](http://riverscapes.xyz):
