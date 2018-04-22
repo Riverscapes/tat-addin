@@ -3,8 +3,11 @@ title: Help Documentation
 weight: 1
 ---
 
-
 ![TAT_Toolbar]({{ site.baseurl }}/assets/images/TAT_Toolbar.png)
+
+The help documentation consists of command references and video tutorials on how to use commands.
+
+
 
 <div align="center">
 	<a class="hollow button" href="{{ site.baseurl }}/Help/Data_Preparation/"><i class="fa fa-info-circle"></i> Data Preparation Tools Help</a> 

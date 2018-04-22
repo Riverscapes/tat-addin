@@ -2,6 +2,6 @@ obj/
 bin/
 _Redistributable/
 *.suo
-GCDAddIn.vbproj.user
+*.vbproj.user
 
 _site/

@@ -1,0 +1,378 @@
+##################################################################################################################################
+##This script creates classes for topographic complexity parameters and their influence on uncertainty.
+##It uses the basic distribution of each spatial parameters to create classes for each parameter, ANOVA tests are then run
+##on the groupings to ensure statistical significance. Figures of the boxplots are then created for each group.
+##
+##INPUTS : Tables where raster values have been extracted where uncertainty estimates have been collected
+##OUTPUTS: Graphic of the classes that set the backbone for FIS, (text file of the output rigid groups to help guide an FIS
+##################################################################################################################################
+
+############# INITIALIZATION #######################################################
+rm(list=ls(all=TRUE))
+
+
+args <- commandArgs(TRUE)
+print(args)
+
+
+###Create global variables from command line arguements to make code more readable
+
+inTable <- args[2]
+outPutFolder <- args[3]
+uncertaintyColumnNum <- 3
+uncertaintyClassifiedColumn <- 4
+parameter1ColumnNum <- 5
+parameter1Alias <- args[4]
+parameter1ClassifiedColumn <- 6
+parameter2ColumnNum <- 7
+parameter2Alias <- args[5]
+parameter2ClassifiedColumn <- 8
+
+Table <- read.table(args[2], sep = ',', header = TRUE)
+Table <- Table[c(uncertaintyColumnNum, uncertaintyClassifiedColumn, parameter1ColumnNum, parameter1ClassifiedColumn, parameter2ColumnNum, parameter2ClassifiedColumn)]
+
+colnames(Table) <- c('Uncert' , 'UncertClass', 'Param1', 'Param1Class', 'Param2', 'Param2Class')
+Table$Uncert <- abs(Table$Uncert)
+
+####################################################################################
+##
+#ESTABLISH THE STATISTICAL SIGNIFICANCE OF AN INPUT PARAMETER ON UNCERTAINTY
+##
+####################################################################################
+
+
+createLinearRegressionGraphic <- function(inputUncertainty, inputParam, paramName, outputFileName) {
+	
+	#open png device
+	png(filename = outputFileName, width = 520, height = 480, units = 'px')
+
+	#Calculate linear regression model
+	sumLm1<-summary(lm1 <- lm(inputUncertainty~inputParam))
+
+	#plot regression
+	plot(inputUncertainty~inputParam, xlab = paramName, ylab = 'Measurement Uncertainty', main = paste('Influence of', paramName,'on Measurement Uncertainty', sep = ' '), cex.main = 1.5, cex.lab = 1.25)  
+	mtext(paste('F-Statistic = ',round(sumLm1$fstatistic[1],2), '  at  ', sumLm1$fstatistic[3], ' degrees of freedom', sep = ''), 3, cex = 1.25)
+	dev.off()
+}
+
+createLinearRegressionGraphic(Table$Uncert, Table$Param1, parameter1Alias, paste(outPutFolder, '\\RegressionFigure_', parameter1Alias, '.png', sep = ''))
+createLinearRegressionGraphic(Table$Uncert, Table$Param2, parameter2Alias, paste(outPutFolder, '\\RegressionFigure_', parameter2Alias, '.png', sep = ''))
+
+
+####################################################################################
+##
+#UNDERSTAND THE DISTRIBUTION OF INPUT PARAMETERS THAT PASS STATISTICAL SIGNIFICANCE
+##
+####################################################################################
+
+createDistributionGraphic <- function(inputParam, paramName, outputFileName) {
+	
+	#open png device
+	png(filename = outputFileName, width = 520, height = 480, units = 'px')
+
+	#Create a layout to display the Histogram and boxplot of the data
+	MyLayOut <- matrix(1,1,2)
+	MyLayOut[1,2] <- 2
+	Template <- layout(mat=MyLayOut, width = c(3,1), heights = c(3,3), respect = TRUE)
+
+	#Plot 1 Histogram with Jitter
+	hist(inputParam, breaks = 50, main = paste('Histogram of ', paramName, sep =''), xlab = paramName)
+	rug(jitter(inputParam))
+	
+	#Plot 2 - Boxplot
+	par(mar = c(4,4,2,2))
+	boxplot(inputParam)
+	
+	sumStats = as.numeric(summary(inputParam))
+	minText = paste('Min:', round(sumStats[1], 3) ,sep = ' ')
+	firstQuarterText = paste('1stQu:', round(sumStats[2], 3), sep = ' ')
+	medianText = paste('Median:', round(sumStats[3], 3), sep = ' ')
+	meanText = paste('Mean:', round(sumStats[4], 3), sep = ' ')
+	thirdQuarterText = paste('3rdQu:', round(sumStats[5], 3), sep = ' ')
+	maxText = paste('Max:', round(sumStats[6], 3), sep = ' ')
+	statsText = paste(minText, firstQuarterText, medianText, meanText, thirdQuarterText, maxText, sep = '   ')
+     
+	mtext(statsText, 1, 4, at = -4)
+	dev.off()
+}
+
+outputFileName = paste(outPutFolder, '\\DistributionFigure_', parameter1Alias, '.png', sep = '')
+createDistributionGraphic(Table$Param1, parameter1Alias, outputFileName)
+
+outputFileName = paste(outPutFolder, '\\DistributionFigure_', parameter2Alias, '.png', sep = '')
+createDistributionGraphic(Table$Param2, parameter2Alias, outputFileName)
+
+outputFileName = paste(outPutFolder, '\\DistributionFigure_', 'Uncertainty', '.png', sep = '')
+createDistributionGraphic(Table$Uncert, 'Uncertainty', outputFileName)
+
+################ RUN ANOVA ANALYSIS TO TEST THAT A EACH PARAMETER GROUP HAS A STATISTICALLY SIGNIFICANT EFFECT ON UNCERTAINTY WHEN COMPARED TO THE OTHER PARAMETER GROUPS###############################################
+
+fStatSR <- vector()
+pValueSR <- vector()
+dfSR <- vector()
+
+fStatSL <- vector()
+dfSL <- vector()
+pValueSL <- vector()
+testLab <- vector()
+
+
+#ANOVA with unequal variances between each crisp group of the input parameters
+
+fScore <- vector()
+pValue <- vector()
+for(i in 1:3){
+	if (i == 3) {
+		subSetSR <- Table[Table$Param1Class == 1 | Table$Param1Class == 3,]
+		subSetSL <- Table[Table$Param2Class == 1 | Table$Param2Class == 3,]
+		summarySR <- oneway.test(subSetSR$Uncert~subSetSR$Param1Class)
+		summarySL <- oneway.test(subSetSL$Uncert~subSetSL$Param2Class)
+		fStatSR <- append(fStatSR,summarySR$statistic)
+		pValueSR <- append(pValueSR, summarySR$p.value)
+		dfSR <- append(dfSR,  as.numeric(summarySR$parameter[2]))
+		fStatSL <- append(fStatSL,summarySL$statistic)
+		pValueSL <- append(pValueSL, summarySL$p.value)
+		dfSL <- append(dfSL,  as.numeric(summarySL$parameter[2]))
+		testLab <- append(testLab, '1 3')
+	}
+	else {
+		subSetSR <- Table[Table$Param1Class == i | Table$Param1Class == i + 1,]
+		subSetSL <- Table[Table$Param2Class == i | Table$Param2Class == i + 1,]
+		summarySR <- oneway.test(subSetSR$Uncert~subSetSR$Param1Class)
+		summarySL <- oneway.test(subSetSL$Uncert~subSetSL$Param2Class)
+		fStatSR <- append(fStatSR,summarySR$statistic)
+		pValueSR <- append(pValueSR, summarySR$p.value)
+		dfSR <- append(dfSR,  as.numeric(summarySR$parameter[2]))
+		fStatSL <- append(fStatSL,summarySL$statistic)
+		pValueSL <- append(pValueSL, summarySL$p.value)
+		dfSL <- append(dfSL,  as.numeric(summarySL$parameter[2]))
+		testLab <- append(testLab, paste(as.character(i), as.character(i+1), sep = ' '))
+	}
+}
+
+ResultSR <- data.frame(round(fStatSR,3), round(pValueSR, 3), round(dfSR, 3), testLab)
+colnames(ResultSR) <- c('FScore', 'pValue', 'DF', 'Comp')
+write.table(ResultSR, file = paste(outPutFolder, '\\', 'ANOVA_Groups_', parameter1Alias, '.txt', sep = ''), col.names = TRUE, sep = ',', row.names = FALSE) 
+
+ResultSL <- data.frame(round(fStatSL,3), round(pValueSL,3), round(dfSL,3), testLab)
+colnames(ResultSL) <- c('FScore', 'pValue', 'DF', 'Comp')
+write.table(ResultSL, file = paste(outPutFolder, '\\', 'ANOVA_Groups_', parameter2Alias, '.txt', sep = ''), col.names = TRUE, sep = ',', row.names = FALSE) 
+
+
+#Create boxplots of measurement error by parameter groups
+
+
+createUncertaintyBoxplotByCrispGroup <- function(inputUncertainty, inputParamClass, inputParamName, outputFileName) {
+	
+	#open png device
+	png(filename = outputFileName, width = 520, height = 480, units = 'px')
+	
+	#Create boxplot of uncertainty
+	boxplot(inputUncertainty~inputParamClass, ylab = 'Measurement Uncertainty', xlab = paste(inputParamName, 'Groups', sep = ' '), cex.axis = 1.25, cex.lab = 1.5, xaxt = 'n')
+	
+	#Get F-stat, probability, and degrees of freedom to report on figure
+	statSignificanceParam <- oneway.test(inputUncertainty~inputParamClass)
+	axis(1, c(1,2,3), labels = c('<= Median', '> Median & <= Median + 2 Stdev', '> Median + 2 Stdev'), cex.lab = 1.5)
+	mtext(paste('F-Statistic = ', round(as.numeric(statSignificanceParam[1]),2), '  at  ', round(as.numeric(statSignificanceParam$parameter[1]), 1), ' & ', round(as.numeric(statSignificanceParam$parameter[2]),1), ' df', sep = ''), 3, cex = 1.25)
+	dev.off()
+}
+
+outputFileName = paste(outPutFolder, '\\', 'UncertaintyBy', parameter1Alias, 'Groups.png', sep = '')
+createUncertaintyBoxplotByCrispGroup(Table$Uncert, Table$Param1Class, 'Roughness', outputFileName)
+
+outputFileName = paste(outPutFolder, '\\', 'UncertaintyBy', parameter2Alias, 'Groups.png', sep = '')
+createUncertaintyBoxplotByCrispGroup(Table$Uncert, Table$Param2Class, 'Slope', outputFileName)
+
+
+####################################################################################
+##
+#CREATE OVERLAP OF CRISP GROUPS (INPUT MEMBERSHIP FUNCTIONS) AND OUTPUT IT TO A FIS FILE STARTER
+##
+####################################################################################
+
+
+getOverlapForCrispGroups <- function(inputParam, paramName, inputNumber, outputFileName, fisName) {
+	
+	#Get Summary statistics of group as a whole in order to create subsets
+	sdParam <- sd(inputParam)
+	sumParam <- as.numeric(summary(inputParam))
+
+	overLapMidToLow <- as.numeric(summary(subset(inputParam, inputParam <= sumParam[3]))[5])
+	overLapLowToMid <- as.numeric(summary(subset(inputParam, inputParam > sumParam[3] & inputParam <= sumParam[3] + (2*sdParam )))[2])
+	overLapHighToMid <- as.numeric(summary(subset(inputParam, inputParam > sumParam[3] & inputParam <= sumParam[3] + (2*sdParam )))[5])
+	overLapMidToHigh <- as.numeric(summary(subset(inputParam, inputParam > sumParam[3]+(2*sdParam )))[2])
+	
+	sink(outputFileName, append = TRUE)
+	if (inputNumber == 'Input1')
+	{cat('[System]\nName=\'',fisName,'\'\nType=\'mamdani\'\nVersion=2.0\nNumInputs=2\nNumOutputs=1\nNumRules=9\nAndMethod=\'min\'\nOrMethod=\'max\'\nImpMethod=\'min\'\nAggMethod=\'max\'\nDefuzzMethod=\'centroid\'\n\n', sep = '')}
+	
+	cat('[', inputNumber, ']\n', sep = '')
+	cat('Name=\'', paramName, '\'\n', sep = '')
+	cat('Range=[0 ', round(max(inputParam, na.rm = TRUE),4), ']\n', sep = '')
+	cat('NumMFs=3', '\n', sep = '')
+	cat('MF1=\'Low\':\'trapmf\',[', 0, ' ', 0, ' ', round(as.numeric(summary(inputParam)[3]),4), ' ', round(overLapLowToMid,4),']\n', sep = '')
+	cat('MF2=\'Medium\':\'trapmf\',[', round(as.numeric(summary(inputParam)[3]),4), ' ', round(overLapLowToMid,4), ' ', round(overLapHighToMid,4), ' ', round(overLapMidToHigh,4),']\n', sep = '')
+	cat('MF3=\'High\':\'trapmf\',[', round(overLapHighToMid,4), ' ', round(overLapMidToHigh,4), ' ', round(max(inputParam, na.rm = TRUE),4) , ' ', round(max(inputParam, na.rm = TRUE),4),']\n', sep = '')
+	cat('\n')
+	sink()
+
+
+	return(overLap <- c(overLapMidToLow, overLapLowToMid, overLapHighToMid, overLapMidToHigh))
+}
+
+fisName = 'FIS_InputGroups'
+outputFileName = paste(outPutFolder, '\\', fisName, '.fis', sep = '')
+overLapParam1 <- getOverlapForCrispGroups(Table$Param1, parameter1Alias, 'Input1', outputFileName, fisName)
+overLapParam2 <- getOverlapForCrispGroups(Table$Param2, parameter2Alias, 'Input2', outputFileName, fisName)
+overLapUncert <- getOverlapForCrispGroups(Table$Uncert, 'Uncertainty', 'Output1', outputFileName, fisName)
+
+####################################################################################
+##
+#CREATE FIS GUIDE TABLE
+##
+####################################################################################
+
+
+
+#############################Calculate the basic summary statistics for potential combinations of SL and SR groups#################################
+#Table <- Table[-c(1,2,3,4,5,6,8)]
+
+resultsTitle <- vector()
+resultsMed <- vector()
+resultsMean <- vector()
+resultsMin <- vector()
+resultsMax <- vector()
+resultsSD <- vector()
+resultsN <- vector()
+ruleNum <- vector()
+ct <- 1
+for (i in 1:3) {
+	for (j in 1:3){
+		if (length(subset(Table, Table$Param1Class == i & Table$Param2Class == j)$Uncert) != 0){
+			relate1 <- Table[Table$Param1Class == i & Table$Param2Class == j,]
+			resultsTitle <- append(resultsTitle, paste('SR', i, ' SL', j, sep = ''))
+			resultsMed <- append(resultsMed, median(relate1$Uncert))
+			resultsMean <- append(resultsMean, mean(relate1$Uncert))
+			resultsSD <- append(resultsSD, sd(relate1$Uncert))
+			resultsMin <- append(resultsMin, min(relate1$Uncert))
+			resultsMax <- append(resultsMax, max(relate1$Uncert))
+			resultsN <- append(resultsN, length(relate1$Uncert))
+			ruleNum <- append(ruleNum, ct)
+			ct <- ct + 1
+		}
+		else {
+			resultsTitle <- append(resultsTitle, paste('SR', i, ' SL', j, sep = ''))
+			resultsMed <- append(resultsMed, 'NA')
+			resultsMean <- append(resultsMean, 'NA')
+			resultsSD <- append(resultsSD, 'NA')
+			resultsMin <- append(resultsMin, 'NA')
+			resultsMax <- append(resultsMax, 'NA')
+			resultsN <- append(resultsN, 0)
+			ruleNum <- append(ruleNum, ct)
+			ct <- ct + 1
+		}
+	}
+}
+	
+fisGuide <- data.frame(resultsTitle, as.numeric(resultsMed), as.numeric(resultsMean), 
+				     as.numeric(resultsSD), as.numeric(resultsMin),
+				     as.numeric(resultsMax),as.numeric(resultsN),
+				     as.numeric(ruleNum))
+
+
+colnames(fisGuide) <- c('Groups', 'Median', 'Mean','StDev', 'Min', 'Max', 'n', 'RuleNum')
+write.table(fisGuide, file = paste(outPutFolder, '\\', 'FIS_OutputMembershipFunctionsGuide_', parameter1Alias, '_', parameter2Alias, '.txt', sep = ''), col.names = TRUE, sep = ',', row.names = FALSE) 
+
+####################################################################################
+##
+#WRITE FIS RULES
+##
+####################################################################################
+
+
+
+classifyUncertClass <- function(inputParam, inputUncert, numberOfRules) {
+ 
+	sdParam <- sd(inputUncert)
+
+	sumParam <- as.numeric(summary(inputUncert))
+	ParamClass <- vector()
+	for(j in 1:length(numberOfRules)){
+		
+		#Check for NA
+		if (is.na(inputParam[j]) == TRUE)
+		{ParamClass[j] = 'NA'}		
+			
+		#Group 1
+		else if (!is.character(inputParam[j]) & inputParam[j] <= sumParam[3]) #Change this value if you want to adjust the boundaries of the groups
+		{ParamClass[j] = 1}
+	
+		#Group 2
+		else if (!is.character(inputParam[j]) & inputParam[j] > sumParam[3] & inputParam[j] <= sumParam[3]+(2*sdParam )) #Change this value if you want to adjust the boundaries of the groups
+ 		{ParamClass[j] = 2}
+
+		#Group 3
+		else if (!is.character(inputParam[j]) & inputParam[j] > sumParam[3]+ (2*sdParam )) #Change this value if you want to adjust the boundaries of the groups 
+		{ParamClass[j] = 3}
+	}
+	return(ParamClass)
+}
+
+
+uncertClass <- classifyUncertClass(fisGuide$Median, Table$Uncert, fisGuide$RuleNum)
+fisGuide <- cbind(fisGuide, uncertClass)
+colnames(fisGuide) <- c('Groups', 'Median', 'Mean','StDev', 'Min', 'Max', 'n', 'RuleNum', 'OutputUncertaintyClass')
+outputFileName = paste(outPutFolder, '\\', fisName, '.fis', sep = '')
+fisGuide$OutputUncertaintyClass
+sink(outputFileName, append = TRUE)
+cat('[Rules]\n')
+cat('1 1, ', fisGuide$OutputUncertaintyClass[1], ' (1) : 1\n', sep = '')
+cat('1 2, ', fisGuide$OutputUncertaintyClass[2], ' (1) : 1\n', sep = '')
+cat('1 3, ', fisGuide$OutputUncertaintyClass[3], ' (1) : 1\n', sep = '')
+cat('2 1, ', fisGuide$OutputUncertaintyClass[4], ' (1) : 1\n', sep = '')
+cat('2 2, ', fisGuide$OutputUncertaintyClass[5], ' (1) : 1\n', sep = '')
+cat('2 3, ', fisGuide$OutputUncertaintyClass[6], ' (1) : 1\n', sep = '')
+cat('3 1, ', fisGuide$OutputUncertaintyClass[7], ' (1) : 1\n', sep = '')
+cat('3 2, ', fisGuide$OutputUncertaintyClass[8], ' (1) : 1\n', sep = '')
+cat('3 3, ', fisGuide$OutputUncertaintyClass[9], ' (1) : 1\n', sep = '')
+sink()
+
+####################Create plots of mean/median v rule combinations#####################################################################
+
+createFISRulesPlots <- function(MeanOrMedian, fisGuide, paramName1, paramName2, outputFileName) {
+	
+	#open png device
+	png(filename = outputFileName, width = 520, height = 480, units = 'px')
+	
+	#create plot
+	if (MeanOrMedian == 'Mean'){
+		plot(fisGuide$Mean~fisGuide$RuleNum, ylim = c(0, max(fisGuide$Mean, na.rm = TRUE) + max(fisGuide$StDev, na.rm = TRUE)), type = 'o', col ='red', lwd = 2,  xaxt = 'n', cex.axis = 1, cex.lab = 1.25, ylab = 'Mean Measurement Uncertainty', xlab = paste(paramName1, '&', paramName2, 'Groups', sep = ' '))
+		axis(1, fisGuide$RuleNum, label = fisGuide$Groups, cex.axis = 0.65, cex.lab= 1.25, las = 3)
+
+		#Put standard deviation lines on graph to show how precise each group is
+		for (i in 1:length(fisGuide$Mean)){
+			if (!is.na(fisGuide$StDev[i]))
+				{segments(i-.10, fisGuide$Mean[i] + fisGuide$StDev[i], i + 0.10, fisGuide$Mean[i] + fisGuide$StDev[i], lwd = 2)
+		 	 	segments(i, fisGuide$Mean[i] + fisGuide$StDev[i], i, fisGuide$Mean[i], lty =2)}
+		}
+	}
+	else if (MeanOrMedian == 'Median'){
+		plot(fisGuide$Median~fisGuide$RuleNum, ylim = c(0, max(fisGuide$Median, na.rm = TRUE) + max(fisGuide$StDev, na.rm = TRUE)), type = 'o', col ='red', lwd = 2,  xaxt = 'n', cex.axis = 1, cex.lab = 1.25, ylab = 'Median Measurement Uncertainty', xlab = paste(paramName1, '&', paramName2, 'Groups', sep = ' '))
+		axis(1, fisGuide$RuleNum, label = fisGuide$Groups, cex.axis = 0.65, cex.lab= 1.25, las = 3)
+
+		#Put standard deviation lines on graph to show how precise each group is
+		for (i in 1:length(fisGuide$Median)){
+			if (!is.na(fisGuide$StDev[i]))
+				{segments(i-.10, fisGuide$Median[i] + fisGuide$StDev[i], i + 0.10, fisGuide$Median[i] + fisGuide$StDev[i], lwd = 2)
+		 	 	segments(i, fisGuide$Median[i] + fisGuide$StDev[i], i, fisGuide$Median[i], lty =2)}
+		}
+	}
+	dev.off()	
+}
+
+outputFileName = paste(outPutFolder, '\\', 'FISGuideMEAN_', parameter1Alias, '_', parameter2Alias, '.png', sep = '')
+createFISRulesPlots('Mean', fisGuide, 'Roughness', 'Slope', outputFileName)
+
+outputFileName = paste(outPutFolder, '\\', 'FISGuideMEDIAN_', parameter1Alias, '_', parameter2Alias, '.png', sep = '')
+createFISRulesPlots('Median', fisGuide, 'Roughness', 'Slope', outputFileName)
+

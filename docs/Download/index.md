@@ -27,6 +27,7 @@ The TAT Add-In source code is avialble on GitHub as part of the [Riverscapes Con
 <div align="center">
 	<a class="button large " href="https://github.com/Riverscapes/tat-addin"> <i class="fa fa-file-code-o"></i>&nbsp;&nbsp;TAT Source Code on GitHub <i class="fa fa-github"></i></a>
 </div>
+
 ------
 <div align="center">
     <a class="hollow button" href="{{ site.baseurl }}/"><i class="fa fa-arrow-circle-left"></i>  Back to TAT Home </a>  

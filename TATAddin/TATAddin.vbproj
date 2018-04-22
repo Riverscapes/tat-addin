@@ -431,6 +431,12 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <Content Include="RScripts\GCD_SimpleMinLoDDistribution.R">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RScripts\GCD_ThresholdedDistribution.R">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="TopCAT\.gitignore" />
   </ItemGroup>
   <ItemGroup>
@@ -438,6 +444,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <Generator>ArcGISAddInHostGenerator</Generator>
       <LastGenOutput>Config.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
     </AddInContent>
   </ItemGroup>
   <ItemGroup>
@@ -515,6 +522,18 @@
     <None Include="Resources\alphabetical.png" />
     <None Include="Resources\AddToMap.png" />
     <None Include="Resources\Add.png" />
+    <Content Include="RScripts\pointCloudToTin.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RScripts\rawPointCloudToShp.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RScripts\rRoughDraftDevelopFIS_BoostedWithVB_CommandLineVersion0.1.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RScripts\toPCAT_outPutToShp_OsgeoOption.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="TopCAT\ToPCATx64.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
