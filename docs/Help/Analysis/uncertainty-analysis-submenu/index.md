@@ -13,22 +13,10 @@ These commands are intended to help you explore various ways of either developin
 
 - `FIS Development Tools`
   - [BETA `FIS Development Assistant`]({{ site.baseurl }}/Help/Analysis/uncertainty-analysis-submenu/fis-development-assistant.html)
-- Point Cloud Based
+- [`Point Cloud Based`]({{ site.baseurl }}/Help/Analysis/uncertainty-analysis-submenu/point-cloud-based/)
   - [`Coincident Points Tool`]({{ site.baseurl }}/gcd-command-reference/gcd-analysis-menu/a-uncertainty-analysis-submenu/b-point-cloud-based/i-coincident-points-tool)
-- [Raster Based]({{ site.baseurl }}/gcd-command-reference/gcd-analysis-menu/a-uncertainty-analysis-submenu/c-raster-ba)
-  - [Create Interpolation Error Surface]({{ site.baseurl }}/gcd-command-reference/gcd-analysis-menu/a-uncertainty-analysis-submenu/c-raster-ba/i-create-interpolation-error-surface)
-
-The [FIS Development Tools]({{ site.baseurl }}/Help/Analysis/uncertainty-analysis-submenu/fis-development-assistant.html), currently include the FIS Development Assistant and *may* eventually include an FIS Development Wizard. 
-
-![GCD6_Menu_Analysis_Uncertainty_FIS_FISAssist]({{ site.baseurl }}/assets/images/GCD6_Menu_Analysis_Uncertainty_FIS_FISAssist.png)
-
-The Point Cloud Based tools include two tools: the Coincident Point Tools and Brasington et al (2013)'s ToPCAT Detrended Standard Deviation tool. These tools both require high density (circa. > 5 points/m2) point clouds. 
-
-![GCD6_Menu_Analysis_Uncertainty_PtCloud]({{ site.baseurl }}/assets/images/GCD6_Menu_Analysis_Uncertainty_PtCloud.png)
-
-The Raster Based tools include Creating an FIS Error Surface (works the same as within the Project Explorer, except you specify where to store the output), and the Create Interpolation Error Surface.
-
-![GCD6_Menu_Analysis_Uncertainty_RasterBasedt]({{ site.baseurl }}/assets/images/GCD6_Menu_Analysis_Uncertainty_RasterBasedt.png)
+- [`Raster Based`]({{ site.baseurl }}/Help/Analysis/uncertainty-analysis-submenu/raster-ba/)
+  - [`Create Interpolation Error Surface`]({{ site.baseurl }}/Help/Analysis/uncertainty-analysis-submenu/raster-ba/create-interpolation-error-surface.html)
 
 ------
 <div align="center">
