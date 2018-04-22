@@ -1,5 +1,6 @@
 ---
-title: i. Coincident Points Tool
+title: Coincident Points Tool
+weight: 1
 ---
 
 The `Coincident Points Tool` takes a raw survey x,y,z file as input and searches it for occurrences when the same x,y location is surveyed multiple times. The tool outputs a shapefile that contains the x,y locations, the two different z measurements  and the difference between the z values. The difference between the z values can be used as an estimation for uncertainty at theses x, y locations At these locations raster values, such as slope and surface roughness, can be extracted and used to model the relationship between these external parameters and point uncertainty. 
