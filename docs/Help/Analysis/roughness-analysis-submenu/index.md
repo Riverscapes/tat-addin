@@ -9,9 +9,9 @@ The Roughness Analysis Sub-Menu will include a variety of roughness estimation t
 
 #### Roughness Analysis Commands
 
-- [i. Simple ToPCAT Roughness]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/i-simple-topcat-roughness.html)
-- [ii. Bootstrap Roughness Modeler]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/bootstrap-roughness-modeler.html)
-- [iii. Grain Size Distribution Estimator]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/grain-size-distribution-estimator.html)
+- [Simple ToPCAT Roughness]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/simple-topcat-roughness.html)
+- [Bootstrap Roughness Modeler]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/bootstrap-roughness-modeler.html)
+- [Grain Size Distribution Estimator]({{ site.baseurl }}/Help/Analysis/roughness-analysis-submenu/grain-size-distribution-estimator.html)
 
 ------
 <div align="center">
