@@ -36,7 +36,8 @@ The outputs for the Create Survey Extent Polygon tool are:
   - *represents the area where a point was surveyed for each individual sample window based on the grid created by the input sample size window*
 
 
-
+# KNOWN LIMITATIONS
+Warning: This command only works with older versions of ArcGIS (pre 10.2) given its ArCPy Depencies. See [this post](https://github.com/Riverscapes/tat-addin/issues/9).
 
 
 ------
