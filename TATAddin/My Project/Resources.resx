@@ -274,4 +274,7 @@
   <data name="ttpHelp" xml:space="preserve">
     <value>Get online help with how to use this form.</value>
   </data>
+  <data name="ScriptDirectory" xml:space="preserve">
+    <value>Resources\scripts</value>
+  </data>
 </root>

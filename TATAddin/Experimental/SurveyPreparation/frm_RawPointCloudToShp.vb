@@ -83,7 +83,7 @@ Public Class frm_RawPointCloudToShp
             Exit Sub
         End If
 
-        Dim joinPath = {IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location), "Resources\RScripts\rawPointCloudToShp.py"}
+        Dim joinPath = {IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location), My.Resources.ScriptDirectory, "rawPointCloudToShp.py"}
         Dim pythonFile As String = [String].Join("\", joinPath)
 
         If Not IO.File.Exists(pythonFile) Then
