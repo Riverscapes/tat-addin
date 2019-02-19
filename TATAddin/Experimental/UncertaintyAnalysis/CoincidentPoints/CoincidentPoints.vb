@@ -217,7 +217,8 @@ Public Class CoincidentPoints
 
 
         Dim pythonFile = IO.Path.Combine(IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location),
-                                         "Resources\RScripts\toPCAT_outPutToShp_OsgeoOption.py")
+                                         My.Resources.ScriptDirectory,
+                                         "toPCAT_outPutToShp_OsgeoOption.py")
 
         If Not IO.File.Exists(pythonFile) Then
             MsgBox("The python script used to run this tool is missing from your GCD installation folder.", MsgBoxStyle.Information, My.Resources.ApplicationNameLong)

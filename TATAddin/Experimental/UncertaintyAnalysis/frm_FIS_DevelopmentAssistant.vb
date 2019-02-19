@@ -134,7 +134,7 @@
         Dim rBatFile As String
 
         Dim rFile = IO.Path.Combine(IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location),
-                                    "Resources\RScripts\rRoughDraftDevelopFIS_BoostedWithVB_CommandLineVersion0.1.txt")
+                                    "Resources\scripts\rRoughDraftDevelopFIS_BoostedWithVB_CommandLineVersion0.1.txt")
 
         If Not IO.File.Exists(rFile) Then
             MsgBox("The R script used to run this tool is missing from your GCD installation folder.", MsgBoxStyle.Information, My.Resources.ApplicationNameLong)
