@@ -2,7 +2,7 @@
   <Name>TATAddin</Name>
   <AddInID>{6726f1a0-44da-40cf-b66b-797cad31736b}</AddInID>
   <Description>Type in a description for this Add-in.</Description>
-  <Version>1.0.1</Version>
+  <Version>1.0.2</Version>
   <Image>Images\TATAddin.png</Image>
   <Author>Philip Bailey</Author>
   <Company>North Arrow Research Ltd.</Company>
