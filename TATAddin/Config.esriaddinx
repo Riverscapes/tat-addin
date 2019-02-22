@@ -29,7 +29,7 @@
         <Button id="TATAddIn_FIS_DevelopmentAssistant" class="FIS_DevelopmentAssistantButton" message="Aids in the creation of a Fuzzy Inference System" caption="FIS Development Assistant (BETA)" category="TAT" image="Resources\FISLibrary.png"/>
         <!-- Uncertainty - Point Cloud Based Analysis Sub sub menu-->
         <Button id="TATAddIn_CoincidentPointsButton" class="CoincidentPointsToolButton"  message="Finds coincident points within a text based point cloud file" caption="Coincident Points Tool (BETA)" category="TAT" image="Resources\CoincidentPoints.png"/>
-        <Button id="TATAddIn_ToPCAT_DetrendedStandardDeviationButton" class="ToPCAT_DetrendedStandardDeviationButton" message="" caption="ToPCAT Detrended Standard Deviation" category="TAT" image="Resources\TopCat.png"/>
+        <Button id="TATAddIn_SimpleToPCAT_RoughnessButton" class="SimpleToPCAT_RoughnessButton" message="" caption="ToPCAT Detrended Standard Deviation" category="TAT" image="Resources\TopCat.png"/>
         <!-- Uncertainty - Raster Based  Analysis Sub sub menu-->
         <Button id="TATAddIn_FIS_ErrorSurfaceButton" class="FIS_ErrorSurfaceButton" message="Create FIS error raster surface" caption="Create FIS Error Surface" category="TAT" image="Resources\FISLibrary.png"/>
         <Button id="TATAddIn_InterpolationErrorSurfaceButton" class="InterpolationErrorSurfaceButton" message="Creates an interpolation error surface" caption="Create Interpolation Error Surface (BETA)" category="TAT" image=""/>
@@ -110,7 +110,7 @@
         <Menu caption ="Point Cloud Based" isRootMenu="false" id="TATAddIn_PointCloudBasedUncertaintyMenu">
           <Items>
             <Button refID="TATAddIn_CoincidentPointsButton"/>
-            <Button refID="TATAddIn_ToPCAT_DetrendedStandardDeviationButton"/>
+            <Button refID="TATAddIn_SimpleToPCAT_RoughnessButton"/>
           </Items>
         </Menu>
         <!-- Uncertainty - Raster Based Menu-->

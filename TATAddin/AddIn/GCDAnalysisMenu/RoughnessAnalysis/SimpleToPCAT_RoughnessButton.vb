@@ -5,8 +5,7 @@
 
         Dim frm As New frm_SimpleToPCAT_RoughnessRaster(My.ThisApplication)
         Try
-            If frm.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-            End If
+            frm.ShowDialog()
         Catch ex As Exception
             ExceptionUI.HandleException(ex)
         End Try
