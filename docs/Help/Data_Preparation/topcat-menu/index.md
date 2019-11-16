@@ -4,7 +4,7 @@ title: TopCAT Submenu
 
 ![TAT_Toolbar_ToPCAT]({{ sites.baseurl }}/assets/images/TAT_Toolbar_ToPCAT.png)
 
-Brasington et al.'s (2012) [ToPCAT algorithm](http://gcd.riverscapes.xyz/help/gcd-concepts/topcat-decimation) can be run on high-density point clouds from within the TAT software. In addition, we provide a ToPCAT Preparation tool to help prepare your data for input into ToPCAT. 
+Brasington et al.'s (2012) [ToPCAT algorithm](http://gcd.riverscapes.xyz/Concepts/topcat-decimation.html) can be run on high-density point clouds from within the TAT software. In addition, we provide a ToPCAT Preparation tool to help prepare your data for input into ToPCAT. 
 
 #### Tools
 These tools simply allow a user to run [ToPCAT](http://mbes.joewheaton.org/background/conceptual-reference-pages/topcat) to process large point clouds within a GIS environment and visualize the outputs in GIS. This includes: 
