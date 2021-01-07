@@ -247,33 +247,6 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to joe.wheaton@usu.edu.
-        '''</summary>
-        Friend ReadOnly Property GCDHelpEmail() As String
-            Get
-                Return ResourceManager.GetString("GCDHelpEmail", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to http://tat.riverscapes.xyz.
-        '''</summary>
-        Friend ReadOnly Property GCDHelpWebSiteURL() As String
-            Get
-                Return ResourceManager.GetString("GCDHelpWebSiteURL", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to http://tat.riverscapes.xyz.
-        '''</summary>
-        Friend ReadOnly Property GCDWebSiteURL() As String
-            Get
-                Return ResourceManager.GetString("GCDWebSiteURL", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Help() As System.Drawing.Bitmap
@@ -284,11 +257,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to http://tat.riverscapes.xyz.
+        '''  Looks up a localized string similar to http://tat.riverscapes.xyz/Help.
         '''</summary>
         Friend ReadOnly Property HelpBaseURL() As String
             Get
                 Return ResourceManager.GetString("HelpBaseURL", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to joe.wheaton@usu.edu.
+        '''</summary>
+        Friend ReadOnly Property HelpEmail() As String
+            Get
+                Return ResourceManager.GetString("HelpEmail", resourceCulture)
             End Get
         End Property
         
@@ -569,6 +551,15 @@ Namespace My.Resources
         Friend ReadOnly Property ttpHelp() As String
             Get
                 Return ResourceManager.GetString("ttpHelp", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to http://tat.riverscapes.xyz.
+        '''</summary>
+        Friend ReadOnly Property WebSiteURL() As String
+            Get
+                Return ResourceManager.GetString("WebSiteURL", resourceCulture)
             End Get
         End Property
     End Module

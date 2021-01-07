@@ -4,7 +4,7 @@
     Protected Overrides Sub OnClick()
 
         Try
-            Process.Start(My.Resources.GCDWebSiteURL)
+            Process.Start(My.Resources.WebSiteURL)
         Catch ex As Exception
             ExceptionUI.HandleException(ex)
         End Try
