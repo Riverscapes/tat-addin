@@ -9,11 +9,13 @@ The `ToPCAT point cloud decimation` tool takes in a space delimited x y z file (
 
 ![GCD6_Form_ToPCAT_Decimation_Tab2]({{ site.baseurl }}/assets/images/GCD6_Form_ToPCAT_Decimation_Tab2.png)
 
+<!---
 ### Tutorial
 
 For a demonstration of this tool (run in [MBES Tools](http://mbes.joewheaton.org/)) and an explanation of why or why not to create the two outputs see the video below (note: video from GCD 6, but operation is same in TAT):
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/OyVlYZJmtIg" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+--->
 
 ------
 

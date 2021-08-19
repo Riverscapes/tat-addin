@@ -9,8 +9,8 @@ The `Create Point Feature Class` tool takes a raw xyz point cloud in a flat asci
 
 The  video gives a succinct tutorial on how to use and the details of the Create Point Feature Class Tool (note the video shows accessing the tool from GCD 6, but functionality is same in TAT):
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/5e6e9j4v5Fc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<!---
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5e6e9j4v5Fc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe> --->
 
 ## Raw Point Cloud to Shapefile 
 

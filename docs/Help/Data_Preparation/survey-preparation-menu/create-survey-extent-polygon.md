@@ -8,8 +8,9 @@ The` Create Survey Extent Polygon` tool (or `Survey Mask Creator`) takes a raw x
 ![CreateSurveyExtentPolygonToolUI]({{ site.baseurl }}/assets/images/CreateSurveyExtentPolygonToolUI.png)
 
 The  video gives a succinct tutorial on how to use and the details of the `Survey Mask Creator` (note video is from GCD 6, but functionality is same in TAT):
-
+<!---
 <iframe width="560" height="315" src="https://www.youtube.com/embed/O6MR16S2mBc" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+--->
 
 
 ## `Survey Mask Creator`

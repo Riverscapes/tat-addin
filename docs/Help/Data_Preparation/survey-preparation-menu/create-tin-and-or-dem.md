@@ -7,9 +7,13 @@ The `Create TIN and/or DEM` tool allows you to derive a TIN and raster DEM in on
 
 ![GCD6_Form_PointCloudtoTINDEM]({{ site.baseurl }}/assets/images/GCD6_Form_PointCloudtoTINDEM.png)
 
+<!---
+
 The below video gives a succinct tutorial on how to use and the details of the `Create TIN and/or DEM` tool:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RR9_VHl9S0g" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+--->
 
 ------
 
